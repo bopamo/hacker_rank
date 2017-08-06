@@ -61,7 +61,6 @@ string s_strip(string s, int k) {
         m[i]++;
     }
 
-
     string s_adj;
     for(const auto& i : s) {
 
@@ -87,27 +86,11 @@ string solve(string s, int k) {
 
     s = shrunk;
 
-    string s_sorted = s;
-
     string t = get_sub(s, k);
 
+    t = s_strip(t, k);
 
-    unordered_map<char, int> mm;
-
-    for(const auto& i : t) {
-        mm[i]++;
-    }
-
-    string tt;
-
-    for(const auto& i : t) {
-
-        auto got = mm.find (i);
-        
-        if( got->second >= k) tt += got->first;
-    }
-    
-    return tt;
+    return t;
 }
 
 
